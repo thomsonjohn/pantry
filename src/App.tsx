@@ -1,21 +1,13 @@
 import React from 'react'
 
+import List from './components/List'
+
+import items from './data/ListItems'
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reloooad.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List items={items} />
     </div>
   )
 }
