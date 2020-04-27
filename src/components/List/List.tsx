@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import ListItem from '../ListItem'
 
@@ -10,10 +10,12 @@ type ListProps = {
   }[]
 }
 
-const List = ({ items }: ListProps) => {
+const List: FC<ListProps> = ({ items }: ListProps) => {
   return (
     <div>
-      <ListItem />
+      {items.map((item, index) => {
+        return <ListItem key={`list-item-${index}`} item={item} />
+      })}
     </div>
   )
 }
