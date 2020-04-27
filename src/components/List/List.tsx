@@ -1,22 +1,22 @@
-import React, { FC } from 'react'
+import React, { useContext } from 'react'
 
+import { GlobalContext } from '../../context/GlobalState.js'
 import ListItem from '../ListItem'
 
-type ListProps = {
-  items: {
-    id: number
-    name: string
-    quantity: number
-  }[]
-}
-
-const List: FC<ListProps> = ({ items }: ListProps) => {
+const List = (): JSX.Element => {
+  const { items } = useContext(GlobalContext)
   return (
-    <div>
-      {items.map((item, index) => {
-        return <ListItem key={`list-item-${index}`} item={item} />
-      })}
-    </div>
+    <>
+      {items.length > 0 ? (
+        <>
+          {items.map((item) => (
+            <ListItem key={item.id} item={item} />
+          ))}
+        </>
+      ) : (
+        <p>Nothing here.</p>
+      )}
+    </>
   )
 }
 

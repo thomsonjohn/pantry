@@ -3,14 +3,16 @@ import React from 'react'
 import Header from './components/Header'
 import List from './components/List'
 
-import items from './data/ListItems'
+import { GlobalProvider } from './context/GlobalState.js'
 
 function App(): JSX.Element {
   return (
-    <div className="App">
-      <Header />
-      <List items={items} />
-    </div>
+    <GlobalProvider>
+      <div className="App">
+        <Header />
+        <List />
+      </div>
+    </GlobalProvider>
   )
 }
 
