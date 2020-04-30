@@ -3,6 +3,7 @@ export interface Theme {
     primary: string
     secondary: string
     accent: string
+    grey: string
   }
   font: {
     logo: {
@@ -18,6 +19,7 @@ export const theme: Theme = {
     primary: '#000000',
     secondary: '#FFFFFF',
     accent: '#40BEFF',
+    grey: '#D6D6D6',
   },
   font: {
     logo: {

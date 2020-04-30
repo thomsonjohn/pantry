@@ -3,11 +3,19 @@
 export default (state, action) => {
   switch (action.type) {
     case 'REMOVE_ITEM':
+      localStorage.setItem(
+        'pantryList',
+        JSON.stringify(state.items.filter((item) => item.id !== action.payload))
+      )
       return {
         ...state,
         items: state.items.filter((item) => item.id !== action.payload),
       }
     case 'ADD_ITEM':
+      localStorage.setItem(
+        'pantryList',
+        JSON.stringify([...state.items, action.payload])
+      )
       return {
         ...state,
         items: [...state.items, action.payload],

@@ -5,16 +5,26 @@ import ListItem from '../ListItem'
 
 const List = (): JSX.Element => {
   const { items } = useContext(GlobalContext)
+
   return (
     <>
       {items.length > 0 ? (
         <>
-          {items.map((item) => (
-            <ListItem key={item.id} item={item} />
-          ))}
+          {items.map((item: { id: number; name: string; toBuy: boolean }) => {
+            if (item.toBuy) {
+              return <ListItem key={item.id} item={item} />
+            }
+            return null
+          })}
+          {items.map((item: { id: number; name: string; toBuy: boolean }) => {
+            if (!item.toBuy) {
+              return <ListItem key={item.id} item={item} />
+            }
+            return null
+          })}
         </>
       ) : (
-        <p>Nothing here.</p>
+        <p>Nothing here</p>
       )}
     </>
   )

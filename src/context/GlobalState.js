@@ -1,20 +1,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { createContext, useReducer } from 'react'
-import AppReducer from './AppReducer.js'
+import AppReducer from './AppReducer'
 
 const initialState = {
-  items: [
-    {
-      id: 1,
-      name: 'Bread',
-      quantity: 1,
-      category: 'Bakery',
-    },
-  ],
+  items: [],
 }
 
-export const GlobalContext = createContext(initialState)
+// eslint-disable-next-line no-prototype-builtins
+if (localStorage.hasOwnProperty('pantryList')) {
+  let value = localStorage.getItem('pantryList')
+
+  try {
+    value = JSON.parse(value)
+    initialState.items = value
+  } catch {
+    initialState.items = []
+  }
+}
+
+export const GlobalContext = createContext()
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
