@@ -4,14 +4,16 @@ import { Theme } from '../../Theme'
 
 interface Style {
   body: IStyle
-  bullet: IStyle
   controls: IStyle
   controlButton: object
+  controlWrapper: IStyle
   delete: object
   edit: object
   itemName: IStyle
+  itemWrapper: IStyle
   listItem: IStyle
   strike: IStyle
+  tickBox: IStyle
 }
 
 interface StyleProps {
@@ -30,55 +32,35 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       justifyContent: 'space-between',
       width: '100%',
     },
-    bullet: {
-      backgroundColor: item.toBuy ? theme.color.secondary : theme.color.accent,
-      border: `2px solid ${item.toBuy ? theme.color.grey : theme.color.accent}`,
-      borderRadius: '50%',
-      cursor: 'pointer',
-      height: '18px',
-      marginRight: '.8em',
-      outline: 'none',
-      width: '18px',
-    },
     controls: {
       alignContent: 'center',
-      display: 'grid',
-      gridGap: '10px',
-      gridTemplateColumns: '60px 60px',
+      display: 'flex',
       justifyContent: 'end',
     },
     controlButton: {
       backgroundColor: theme.color.secondary,
-      border: `1px solid ${theme.color.primary}`,
-      borderRadius: '10px',
+      border: `none`,
       color: theme.color.primary,
       cursor: 'pointer',
       outline: 'none',
-      padding: '.4em',
-      width: '60px',
-      ':hover': {
-        backgroundColor: theme.color.primary,
-        color: theme.color.secondary,
-      },
+    },
+    controlWrapper: {
+      display: 'flex',
     },
     delete: {
-      border: `1px solid red`,
+      border: `none`,
       color: 'red',
-      ':hover': {
-        backgroundColor: 'red',
-        color: theme.color.secondary,
-      },
     },
     edit: {
-      border: '1px solid orange',
+      border: 'none',
       color: 'orange',
-      ':hover': {
-        backgroundColor: 'orange',
-        color: theme.color.secondary,
-      },
     },
     itemName: {
       color: item.toBuy ? theme.color.primary : theme.color.grey,
+    },
+    itemWrapper: {
+      alignItems: 'center',
+      display: 'flex',
     },
     listItem: {
       borderBottom: `1px solid ${theme.color.grey}`,
@@ -89,8 +71,16 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       padding: '.8em 0',
     },
     strike: {
-      color: theme.color.accent,
+      color: theme.color.primary,
       textDecoration: item.toBuy ? 'none' : 'line-through',
+    },
+    tickBox: {
+      backgroundColor: theme.color.secondary,
+      border: 'none',
+      cursor: 'pointer',
+      marginRight: '.8em',
+      outline: 'none',
+      padding: '0',
     },
   }
 }

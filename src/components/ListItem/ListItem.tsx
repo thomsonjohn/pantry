@@ -32,37 +32,45 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
   return (
     <div className={css(styles.listItem)}>
       <div className={css(styles.body)}>
-        <div>
+        <div className={css(styles.itemWrapper)}>
           <button
-            className={css(styles.bullet)}
+            className={css(styles.tickBox)}
             onClick={(): void => toggleItem(item)}
-          />
+          >
+            <i className="material-icons">
+              {!item.toBuy ? 'radio_button_checked' : 'radio_button_unchecked'}
+            </i>
+          </button>
           <span className={css(styles.strike)}>
             <span className={css(styles.itemName)}>{item.name}</span>
           </span>
         </div>
-        {manageItem && (
-          <div className={css(styles.controls)}>
-            <button
-              className={css(styles.controlButton, styles.edit)}
-              onClick={(): void => console.log(`edit item ${item.id}`)}
-            >
-              Edit
-            </button>
-            <button
-              className={css(styles.controlButton, styles.delete)}
-              onClick={(): void => removeItem(item.id)}
-            >
-              Delete
-            </button>
-          </div>
-        )}
-        <button
-          className={css(styles.controlButton)}
-          onClick={(): void => setManageItem(!manageItem)}
-        >
-          {manageItem ? 'Less' : 'More'}
-        </button>
+        <div className={css(styles.controlWrapper)}>
+          {manageItem && (
+            <div className={css(styles.controls)}>
+              <button
+                className={css(styles.controlButton, styles.edit)}
+                onClick={(): void => console.log(`edit item ${item.id}`)}
+              >
+                <i className="material-icons">edit</i>
+              </button>
+              <button
+                className={css(styles.controlButton, styles.delete)}
+                onClick={(): void => removeItem(item.id)}
+              >
+                <i className="material-icons">delete_outline</i>
+              </button>
+            </div>
+          )}
+          <button
+            className={css(styles.controlButton)}
+            onClick={(): void => setManageItem(!manageItem)}
+          >
+            <i className="material-icons">
+              {manageItem ? 'close' : 'more_horiz'}
+            </i>
+          </button>
+        </div>
       </div>
     </div>
   )

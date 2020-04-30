@@ -11,16 +11,7 @@ const List = (): JSX.Element => {
       {items.length > 0 ? (
         <>
           {items.map((item: { id: number; name: string; toBuy: boolean }) => {
-            if (item.toBuy) {
-              return <ListItem key={item.id} item={item} />
-            }
-            return null
-          })}
-          {items.map((item: { id: number; name: string; toBuy: boolean }) => {
-            if (!item.toBuy) {
-              return <ListItem key={item.id} item={item} />
-            }
-            return null
+            return <ListItem key={item.id} item={item} />
           })}
         </>
       ) : (
