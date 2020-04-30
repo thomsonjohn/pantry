@@ -1,8 +1,10 @@
 import React from 'react'
+import { Router } from '@reach/router'
 
 import Header from './components/Header'
-import List from './components/List'
-import Search from './components/Search'
+import NavBar from './components/NavBar'
+import Pantry from './components/Pantry'
+import ShoppingList from './components/ShoppingList'
 
 import { GlobalProvider } from './context/GlobalState'
 
@@ -11,8 +13,11 @@ function App(): JSX.Element {
     <GlobalProvider>
       <div className="App">
         <Header />
-        <Search />
-        <List />
+        <NavBar />
+        <Router>
+          <ShoppingList path="/" />
+          <Pantry path="/pantry" />
+        </Router>
       </div>
     </GlobalProvider>
   )
