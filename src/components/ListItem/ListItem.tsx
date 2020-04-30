@@ -11,6 +11,7 @@ type ListItemProps = {
     id: number
     name: string
     toBuy: boolean
+    inBasket: boolean
   }
 }
 
@@ -24,8 +25,8 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
     item,
   })
 
-  const toggleItem = (item: { toBuy: boolean }): void => {
-    const updatedItem = { ...item, toBuy: !item.toBuy }
+  const toggleItem = (item: { inBasket: boolean }): void => {
+    const updatedItem = { ...item, inBasket: !item.inBasket }
     editItem(updatedItem)
   }
 
@@ -38,7 +39,9 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
             onClick={(): void => toggleItem(item)}
           >
             <i className="material-icons">
-              {!item.toBuy ? 'radio_button_checked' : 'radio_button_unchecked'}
+              {item.inBasket
+                ? 'radio_button_checked'
+                : 'radio_button_unchecked'}
             </i>
           </button>
           <span className={css(styles.strike)}>

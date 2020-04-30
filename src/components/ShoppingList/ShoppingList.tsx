@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
+import CTA from '../CTA'
 import List from '../List'
 import Search from '../Search'
 
@@ -13,6 +14,7 @@ const ShoppingList: FC<Props> = () => {
     <>
       <Search />
       <List />
+      <CTA />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { GlobalContext } from '../../context/GlobalState.js'
+import { GlobalContext } from '../../context/GlobalState'
 import ListItem from '../ListItem'
 
 const List = (): JSX.Element => {
@@ -10,9 +10,19 @@ const List = (): JSX.Element => {
     <>
       {items.length > 0 ? (
         <>
-          {items.map((item: { id: number; name: string; toBuy: boolean }) => {
-            return <ListItem key={item.id} item={item} />
-          })}
+          {items.map(
+            (item: {
+              id: number
+              name: string
+              toBuy: boolean
+              inBasket: boolean
+            }) => {
+              if (item.toBuy) {
+                return <ListItem key={item.id} item={item} />
+              }
+              return null
+            }
+          )}
         </>
       ) : (
         <p>Nothing here</p>

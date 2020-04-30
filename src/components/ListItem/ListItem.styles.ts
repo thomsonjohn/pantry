@@ -20,6 +20,7 @@ interface StyleProps {
   theme: Theme
   item: {
     toBuy: boolean
+    inBasket: boolean
   }
 }
 
@@ -56,7 +57,7 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       color: 'orange',
     },
     itemName: {
-      color: item.toBuy ? theme.color.primary : theme.color.grey,
+      color: item.inBasket ? theme.color.grey : theme.color.primary,
     },
     itemWrapper: {
       alignItems: 'center',
@@ -72,7 +73,7 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
     },
     strike: {
       color: theme.color.primary,
-      textDecoration: item.toBuy ? 'none' : 'line-through',
+      textDecoration: item.inBasket ? 'line-through' : 'none',
     },
     tickBox: {
       backgroundColor: theme.color.secondary,

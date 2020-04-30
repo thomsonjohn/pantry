@@ -8,7 +8,7 @@ import makeStyles from './Search.styles'
 
 const Search = (): JSX.Element => {
   const [searchQuery, setSearchQuery] = useState('')
-  const { addItem } = useContext(GlobalContext)
+  const { items, addItem, editItem } = useContext(GlobalContext)
 
   const { css, theme } = useFela<Theme>()
   const styles = makeStyles({
@@ -25,8 +25,22 @@ const Search = (): JSX.Element => {
       category: null,
       toBuy: true,
       lastBought: null,
+      inStock: false,
+      inBasket: false,
     }
-    addItem(newItem)
+    if (
+      items.find(
+        (item: { name: string; toBuy: boolean }) => item.name === searchQuery
+      )
+    ) {
+      const existingItem = items.filter(
+        (item: { name: string }) => item.name === searchQuery
+      )[0]
+      console.log(existingItem)
+      editItem({ ...existingItem, toBuy: true })
+    } else {
+      addItem(newItem)
+    }
     setSearchQuery('')
   }
   return (
