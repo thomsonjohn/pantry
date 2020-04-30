@@ -30,6 +30,8 @@ export default (state, action) => {
         return item
       })
 
+      localStorage.setItem('pantryList', JSON.stringify(updatedItems))
+
       return {
         ...state,
         items: updatedItems,

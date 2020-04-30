@@ -7,7 +7,6 @@ export interface Theme {
   }
   font: {
     logo: {
-      fontFamily: string
       fontSize: string
       fontWeight: number
     }
@@ -23,8 +22,7 @@ export const theme: Theme = {
   },
   font: {
     logo: {
-      fontFamily: 'Montez',
-      fontSize: '2em',
+      fontSize: '1.5em',
       fontWeight: 700,
     },
   },

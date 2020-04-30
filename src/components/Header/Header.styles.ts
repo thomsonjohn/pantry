@@ -16,7 +16,7 @@ const makeStyles = ({ theme }: StyleProps): Style => {
       display: 'flex',
       justifyContent: 'center',
       padding: '.8em',
-      color: theme.color.accent,
+      color: theme.color.primary,
       ...theme.font.logo,
     },
   }
