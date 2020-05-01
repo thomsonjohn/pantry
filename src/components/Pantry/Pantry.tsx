@@ -5,6 +5,7 @@ import PantryList from '../PantryList'
 
 interface Props {
   path: RouteComponentProps
+  default: RouteComponentProps
 }
 
 const Pantry: FC<Props> = () => {

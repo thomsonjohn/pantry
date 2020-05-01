@@ -17,7 +17,7 @@ type ListItemProps = {
 
 const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
   const [manageItem, setManageItem] = useState(false)
-  const { removeItem, editItem } = useContext(GlobalContext)
+  const { editItem } = useContext(GlobalContext)
 
   const { css, theme } = useFela<Theme>()
   const styles = makeStyles({
@@ -27,6 +27,11 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
 
   const toggleItem = (item: { inBasket: boolean }): void => {
     const updatedItem = { ...item, inBasket: !item.inBasket }
+    editItem(updatedItem)
+  }
+
+  const removeFromList = (item: { toBuy: boolean }): void => {
+    const updatedItem = { ...item, toBuy: !item.toBuy }
     editItem(updatedItem)
   }
 
@@ -52,14 +57,8 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
           {manageItem && (
             <div className={css(styles.controls)}>
               <button
-                className={css(styles.controlButton, styles.edit)}
-                onClick={(): void => console.log(`edit item ${item.id}`)}
-              >
-                <i className="material-icons">edit</i>
-              </button>
-              <button
                 className={css(styles.controlButton, styles.delete)}
-                onClick={(): void => removeItem(item.id)}
+                onClick={(): void => removeFromList(item)}
               >
                 <i className="material-icons">delete_outline</i>
               </button>

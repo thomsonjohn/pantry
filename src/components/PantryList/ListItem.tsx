@@ -1,4 +1,5 @@
 import React, { FC, useContext } from 'react'
+import { Link } from '@reach/router'
 
 import { GlobalContext } from '../../context/GlobalState'
 
@@ -12,7 +13,7 @@ type ListItemProps = {
 }
 
 const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
-  const { removeItem, editItem } = useContext(GlobalContext)
+  const { editItem } = useContext(GlobalContext)
 
   const toggleStock = (item: { inStock: boolean }): void => {
     const updatedItem = { ...item, inStock: !item.inStock }
@@ -33,7 +34,7 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
       <button onClick={(): void => toggleToBuy(item)}>
         {item.toBuy ? 'On list' : 'Add to list'}
       </button>
-      <button onClick={(): void => removeItem(item.id)}>Delete</button>
+      <Link to={`${item.id}`}>Edit</Link>
     </div>
   )
 }
