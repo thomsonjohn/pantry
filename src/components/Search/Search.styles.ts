@@ -28,19 +28,22 @@ const makeStyles = ({ theme, searchQuery }: StyleProps): Style => {
       width: '100%',
     },
     input: {
-      border: `2px solid ${theme.color.grey}`,
+      border: `2px solid ${theme.color.textOnPrimary}`,
       flex: '1',
       padding: '.4em .6em',
       borderRadius: '10px',
       ':focus': {
-        border: `2px solid ${theme.color.accent}`,
+        border: `2px solid ${theme.color.textOnPrimary}`,
         outline: 'none',
       },
     },
     submit: {
       backgroundColor: theme.color.secondary,
       border: 'none',
-      color: searchQuery.length > 0 ? theme.color.accent : theme.color.grey,
+      color:
+        searchQuery.length > 0
+          ? theme.color.textOnPrimary
+          : theme.color.textOnPrimary,
       fontSize: '.8em',
     },
   }

@@ -57,14 +57,14 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       color: 'orange',
     },
     itemName: {
-      color: item.inBasket ? theme.color.grey : theme.color.primary,
+      color: item.inBasket ? theme.color.textOnPrimary : theme.color.primary,
     },
     itemWrapper: {
       alignItems: 'center',
       display: 'flex',
     },
     listItem: {
-      borderBottom: `1px solid ${theme.color.grey}`,
+      borderBottom: `1px solid ${theme.color.textOnPrimary}`,
       display: 'flex',
       flexDirection: 'column',
       margin: '0 0.8em',
