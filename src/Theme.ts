@@ -15,6 +15,7 @@ export interface Theme {
     secondaryDark: string
     textOnPrimary: string
     textOnSecondary: string
+    surface: string
   }
   font: {
     headline1: Font
@@ -40,14 +41,15 @@ export interface Theme {
 
 export const theme: Theme = {
   color: {
-    primary: '#ffca28',
-    primaryLight: '#fffd61',
-    primaryDark: '#c79a00',
-    secondary: '#FFFFFF',
-    secondaryLight: '#4f5b62',
-    secondaryDark: '#000a12',
-    textOnPrimary: '#000000',
-    textOnSecondary: '#ffffff',
+    primary: '#263238',
+    primaryLight: '#4f5b62',
+    primaryDark: '#000a12',
+    secondary: '#81c784',
+    secondaryLight: '#b2fab4',
+    secondaryDark: '#519657',
+    textOnPrimary: '#f5f5f5',
+    textOnSecondary: '#263238',
+    surface: '#f5f5f5',
   },
   font: {
     headline1: {
@@ -130,8 +132,8 @@ export const theme: Theme = {
     },
   },
   spacing: {
-    normal: '1em',
-    small: '.5em',
-    large: '1.5em',
+    normal: '1rem',
+    small: '.5rem',
+    large: '1.5rem',
   },
 }

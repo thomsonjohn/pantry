@@ -2,7 +2,6 @@ import React from 'react'
 import { Router } from '@reach/router'
 
 import Header from './components/Header'
-import NavBar from './components/NavBar'
 import Pantry from './components/Pantry'
 import Product from './components/Product'
 import ShoppingList from './components/ShoppingList'
@@ -14,7 +13,6 @@ function App(): JSX.Element {
     <GlobalProvider>
       <div className="App">
         <Header />
-        <NavBar />
         <Router>
           <ShoppingList path="/" />
           <Pantry path="/pantry" default />
