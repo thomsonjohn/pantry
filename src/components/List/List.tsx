@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useFela } from 'react-fela'
+import { scroller } from 'react-scroll'
 
 import { GlobalContext } from '../../context/GlobalState'
 import ListItem from '../ListItem'
@@ -8,16 +9,28 @@ import AddItem from '../AddItem'
 import makeStyles from './List.styles'
 
 const List = (): JSX.Element => {
-  const { items } = useContext(GlobalContext)
+  const { items, lastAdded } = useContext(GlobalContext)
 
   const { css } = useFela()
   const styles = makeStyles()
+
+  useEffect(() => {
+    if (lastAdded.length > 0) {
+      console.log('startscroll')
+      console.log(lastAdded)
+      scroller.scrollTo(lastAdded, {
+        duration: 1000,
+        smooth: true,
+        containerId: 'listWrapper',
+      })
+    }
+  }, [lastAdded])
 
   return (
     <>
       {items.length > 0 ? (
         <>
-          <div className={css(styles.listWrapper)}>
+          <div id="listWrapper" className={css(styles.listWrapper)}>
             {items.map(
               (item: {
                 id: number

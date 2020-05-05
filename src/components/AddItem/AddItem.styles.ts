@@ -34,7 +34,9 @@ const makeStyles = ({ theme }: StyleProps): Style => {
       borderTop: `1px solid ${theme.color.surfaceDark}`,
       color: theme.color.textOnSecondary,
       display: 'flex',
-      flex: '0',
+      flex: '0 0 auto',
+      height: '56px',
+      lineHeight: '56px',
     },
   }
 }

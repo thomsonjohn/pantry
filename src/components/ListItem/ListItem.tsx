@@ -1,6 +1,7 @@
 import React, { FC, useState, useContext } from 'react'
 import { useFela } from 'react-fela'
 import { Link } from '@reach/router'
+import { Element } from 'react-scroll'
 
 import { GlobalContext } from '../../context/GlobalState'
 import { Theme } from '../../Theme'
@@ -39,45 +40,48 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
   }
 
   return (
-    <div className={css(styles.listItem)}>
-      <div className={css(styles.body)}>
-        <div className={css(styles.itemWrapper)}>
-          <button
-            className={css(styles.tickBox)}
-            onClick={(): void => toggleItem(item)}
-          >
-            <i className="material-icons">
-              {item.inBasket ? 'check_box' : 'check_box_outline_blank'}
-            </i>
-          </button>
-          <span className={css(styles.strike)}>
-            <Link to={linkPath} className={css(styles.itemName)}>
-              {item.name}
-            </Link>
-          </span>
-        </div>
-        <div className={css(styles.controlWrapper)}>
-          {manageItem && (
-            <div className={css(styles.controls)}>
-              <button
-                className={css(styles.controlButton, styles.delete)}
-                onClick={(): void => removeFromList(item)}
-              >
-                <i className="material-icons">delete_outline</i>
-              </button>
-            </div>
-          )}
-          <button
-            className={css(styles.controlButton)}
-            onClick={(): void => setManageItem(!manageItem)}
-          >
-            <i className="material-icons">
-              {manageItem ? 'close' : 'more_horiz'}
-            </i>
-          </button>
+    <>
+      <div id={item.name} className={css(styles.listItem)}>
+        <Element name={item.name}></Element>
+        <div className={css(styles.body)}>
+          <div className={css(styles.itemWrapper)}>
+            <button
+              className={css(styles.tickBox)}
+              onClick={(): void => toggleItem(item)}
+            >
+              <i className="material-icons">
+                {item.inBasket ? 'check_box' : 'check_box_outline_blank'}
+              </i>
+            </button>
+            <span className={css(styles.strike)}>
+              <Link to={linkPath} className={css(styles.itemName)}>
+                {item.name}
+              </Link>
+            </span>
+          </div>
+          <div className={css(styles.controlWrapper)}>
+            {manageItem && (
+              <div className={css(styles.controls)}>
+                <button
+                  className={css(styles.controlButton, styles.delete)}
+                  onClick={(): void => removeFromList(item)}
+                >
+                  <i className="material-icons">delete_outline</i>
+                </button>
+              </div>
+            )}
+            <button
+              className={css(styles.controlButton)}
+              onClick={(): void => setManageItem(!manageItem)}
+            >
+              <i className="material-icons">
+                {manageItem ? 'close' : 'more_horiz'}
+              </i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

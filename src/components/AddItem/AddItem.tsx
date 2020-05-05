@@ -35,7 +35,7 @@ const AddItem = (): JSX.Element => {
     if (inputValue.length > 0) {
       const newItem = {
         id: Date.now(),
-        name: inputValue,
+        name: inputValue.toLowerCase(),
         quantity: 1,
         category: null,
         toBuy: true,

@@ -19,6 +19,7 @@ export default (state, action) => {
       return {
         ...state,
         items: [...state.items, action.payload],
+        lastAdded: action.payload.name,
       }
     case 'EDIT_ITEM':
       const updatedItem = action.payload
@@ -35,6 +36,7 @@ export default (state, action) => {
       return {
         ...state,
         items: updatedItems,
+        lastAdded: updatedItem.name,
       }
     default:
       return state

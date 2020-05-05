@@ -11,11 +11,13 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-scroll": "^1.5.4",
     "fela": "^11.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-fela": "^11.3.0",
     "react-scripts": "3.4.1",
+    "react-scroll": "^1.7.16",
     "typescript": "~3.7.2"
   },
   "scripts": {

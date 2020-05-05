@@ -5,6 +5,7 @@ import AppReducer from './AppReducer'
 
 const initialState = {
   items: [],
+  lastAdded: '',
 }
 
 // eslint-disable-next-line no-prototype-builtins
@@ -48,6 +49,7 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         items: state.items,
+        lastAdded: state.lastAdded,
         removeItem,
         addItem,
         editItem,
