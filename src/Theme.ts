@@ -16,6 +16,7 @@ export interface Theme {
     textOnPrimary: string
     textOnSecondary: string
     surface: string
+    surfaceDark: string
   }
   font: {
     headline1: Font
@@ -33,8 +34,9 @@ export interface Theme {
     overline: Font
   }
   spacing: {
-    normal: string
     small: string
+    smallish: string
+    normal: string
     large: string
   }
 }
@@ -50,6 +52,7 @@ export const theme: Theme = {
     textOnPrimary: '#f5f5f5',
     textOnSecondary: '#263238',
     surface: '#f5f5f5',
+    surfaceDark: '#c2c2c3',
   },
   font: {
     headline1: {
@@ -132,8 +135,9 @@ export const theme: Theme = {
     },
   },
   spacing: {
-    normal: '1rem',
     small: '.5rem',
+    smallish: '.75rem',
+    normal: '1rem',
     large: '1.5rem',
   },
 }

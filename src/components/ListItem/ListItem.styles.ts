@@ -8,7 +8,6 @@ interface Style {
   controlButton: object
   controlWrapper: IStyle
   delete: object
-  edit: object
   itemName: IStyle
   itemWrapper: IStyle
   listItem: IStyle
@@ -39,25 +38,25 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       justifyContent: 'end',
     },
     controlButton: {
-      backgroundColor: theme.color.secondary,
       border: `none`,
-      color: theme.color.primary,
+      color: theme.color.textOnSecondary,
       cursor: 'pointer',
       outline: 'none',
+      marginLeft: theme.spacing.normal,
     },
     controlWrapper: {
       display: 'flex',
     },
     delete: {
       border: `none`,
-      color: 'red',
-    },
-    edit: {
-      border: 'none',
-      color: 'orange',
+      color: theme.color.textOnSecondary,
     },
     itemName: {
-      color: item.inBasket ? theme.color.textOnPrimary : theme.color.primary,
+      color: item.inBasket
+        ? theme.color.textOnSecondary
+        : theme.color.textOnSecondary,
+      textDecoration: 'none',
+      textTransform: 'capitalize',
     },
     itemWrapper: {
       alignItems: 'center',
@@ -67,21 +66,24 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       borderBottom: `1px solid ${theme.color.textOnPrimary}`,
       display: 'flex',
       flexDirection: 'column',
-      margin: '0 0.8em',
+      flex: '1 0 auto',
       color: theme.color.primary,
-      padding: '.8em 0',
+      padding: `${theme.spacing.normal} 0`,
     },
     strike: {
-      color: theme.color.primary,
+      color: theme.color.secondary,
       textDecoration: item.inBasket ? 'line-through' : 'none',
     },
     tickBox: {
-      backgroundColor: theme.color.secondary,
+      color: item.inBasket
+        ? theme.color.secondary
+        : theme.color.textOnSecondary,
       border: 'none',
       cursor: 'pointer',
-      marginRight: '.8em',
+      marginRight: theme.spacing.large,
       outline: 'none',
       padding: '0',
+      height: '1.5rem',
     },
   }
 }

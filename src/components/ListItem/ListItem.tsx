@@ -1,5 +1,6 @@
 import React, { FC, useState, useContext } from 'react'
 import { useFela } from 'react-fela'
+import { Link } from '@reach/router'
 
 import { GlobalContext } from '../../context/GlobalState'
 import { Theme } from '../../Theme'
@@ -25,6 +26,8 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
     item,
   })
 
+  const linkPath = `/pantry/${item.id}`
+
   const toggleItem = (item: { inBasket: boolean }): void => {
     const updatedItem = { ...item, inBasket: !item.inBasket }
     editItem(updatedItem)
@@ -44,13 +47,13 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
             onClick={(): void => toggleItem(item)}
           >
             <i className="material-icons">
-              {item.inBasket
-                ? 'radio_button_checked'
-                : 'radio_button_unchecked'}
+              {item.inBasket ? 'check_box' : 'check_box_outline_blank'}
             </i>
           </button>
           <span className={css(styles.strike)}>
-            <span className={css(styles.itemName)}>{item.name}</span>
+            <Link to={linkPath} className={css(styles.itemName)}>
+              {item.name}
+            </Link>
           </span>
         </div>
         <div className={css(styles.controlWrapper)}>

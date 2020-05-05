@@ -18,7 +18,6 @@ const makeStyles = ({ theme, searchQuery }: StyleProps): Style => {
   return {
     form: {
       display: 'flex',
-      padding: '0.8em',
       width: '100%',
     },
     formWrapper: {
@@ -28,12 +27,14 @@ const makeStyles = ({ theme, searchQuery }: StyleProps): Style => {
       width: '100%',
     },
     input: {
-      border: `2px solid ${theme.color.textOnPrimary}`,
+      backgroundColor: 'transparent',
+      border: `1px solid ${theme.color.primaryLight}`,
       flex: '1',
-      padding: '.4em .6em',
-      borderRadius: '10px',
+      padding: `${theme.spacing.normal} ${theme.spacing.smallish}`,
+      borderRadius: '.25rem',
+      lineHeight: theme.spacing.large,
       ':focus': {
-        border: `2px solid ${theme.color.textOnPrimary}`,
+        border: `2px solid ${theme.color.secondary}`,
         outline: 'none',
       },
     },
