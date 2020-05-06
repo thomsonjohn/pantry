@@ -4,7 +4,7 @@ import { Theme } from '../../Theme'
 
 interface Style {
   button: IStyle
-  input: IStyle
+  input: object
   inputWrapper: IStyle
 }
 

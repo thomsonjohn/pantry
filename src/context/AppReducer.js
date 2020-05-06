@@ -22,7 +22,8 @@ export default (state, action) => {
         lastAdded: action.payload.name,
       }
     case 'EDIT_ITEM':
-      const updatedItem = action.payload
+      const updatedItem = action.payload.item
+      const scroll = action.payload.scrollTo
 
       const updatedItems = state.items.map((item) => {
         if (item.id === updatedItem.id) {
@@ -33,11 +34,19 @@ export default (state, action) => {
 
       localStorage.setItem('pantryList', JSON.stringify(updatedItems))
 
+      if (scroll) {
+        return {
+          ...state,
+          items: updatedItems,
+          lastAdded: updatedItem.name,
+        }
+      }
+
       return {
         ...state,
         items: updatedItems,
-        lastAdded: updatedItem.name,
       }
+
     default:
       return state
   }

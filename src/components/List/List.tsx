@@ -19,8 +19,8 @@ const List = (): JSX.Element => {
       console.log('startscroll')
       console.log(lastAdded)
       scroller.scrollTo(lastAdded, {
-        duration: 1000,
-        smooth: true,
+        duration: 2000,
+        smooth: 'smooth',
         containerId: 'listWrapper',
       })
     }

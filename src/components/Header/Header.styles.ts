@@ -5,7 +5,7 @@ import { Theme } from '../../Theme'
 interface Style {
   active: IStyle
   button: IStyle
-  header: IStyle
+  header: object
   logo: IStyle
 }
 

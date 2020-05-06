@@ -47,7 +47,7 @@ const AddItem = (): JSX.Element => {
         const existingItem = items.filter(
           (item: { name: string }) => item.name === inputValue
         )[0]
-        editItem({ ...existingItem, toBuy: true })
+        editItem({ ...existingItem, toBuy: true }, true)
       } else {
         addItem(newItem)
       }

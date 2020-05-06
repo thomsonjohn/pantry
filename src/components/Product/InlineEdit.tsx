@@ -36,7 +36,7 @@ const InlineEdit: FC<Props> = ({ text, id }: Props) => {
   useOnClickOutside(wrapperRef, () => {
     if (inputActive) {
       const updatedItem = { ...item, name: inputValue }
-      editItem(updatedItem)
+      editItem(updatedItem, false)
       setInputActive(false)
     }
   })
@@ -51,7 +51,7 @@ const InlineEdit: FC<Props> = ({ text, id }: Props) => {
     if (inputActive) {
       if (enter) {
         const updatedItem = { ...item, name: inputValue }
-        editItem(updatedItem)
+        editItem(updatedItem, false)
         setInputActive(false)
       }
       if (esc) {

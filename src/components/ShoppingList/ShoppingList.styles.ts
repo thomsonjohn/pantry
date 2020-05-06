@@ -3,7 +3,12 @@ import { IStyle } from 'fela'
 import { Theme } from '../../Theme'
 
 interface Style {
-  subtitle: IStyle
+  actions: IStyle
+  button: IStyle
+  circle: IStyle
+  subtitle: object
+  subtitleWrapper: IStyle
+  topPanel: IStyle
   wrapper: IStyle
 }
 
@@ -13,11 +18,39 @@ interface StyleProps {
 
 const makeStyles = ({ theme }: StyleProps): Style => {
   return {
+    actions: {
+      display: 'flex',
+      paddingTop: theme.spacing.normal,
+    },
+    button: {
+      background: 'transparent',
+      border: 'none',
+      outline: 'none',
+    },
+    circle: {
+      backgroundColor: theme.color.secondary,
+      borderRadius: '50%',
+      position: 'absolute',
+      right: '1rem',
+      width: '12px',
+      height: '12px',
+    },
     subtitle: {
       ...theme.font.subtitle1,
       color: theme.color.textOnSecondary,
-      paddingBottom: theme.spacing.normal,
+    },
+    subtitleWrapper: {
+      alignItems: 'center',
+      display: 'flex',
+      flex: '1',
+      justifyContent: 'space-between',
+    },
+    topPanel: {
       borderBottom: `1px solid ${theme.color.surfaceDark}`,
+      color: theme.color.textOnSecondary,
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: theme.spacing.normal,
     },
     wrapper: {
       borderTopLeftRadius: theme.spacing.normal,

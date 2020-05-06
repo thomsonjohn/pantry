@@ -3,6 +3,7 @@ interface Font {
   fontWeight: number
   fontSize: string
   letterSpacing: string
+  textTransform?: string
 }
 
 export interface Theme {
@@ -34,6 +35,7 @@ export interface Theme {
     overline: Font
   }
   spacing: {
+    xsmall: string
     small: string
     smallish: string
     normal: string
@@ -120,6 +122,7 @@ export const theme: Theme = {
       fontWeight: 500,
       fontSize: '.875rem',
       letterSpacing: '.078rem',
+      textTransform: 'uppercase',
     },
     caption: {
       fontFamily: 'Roboto, sans-serif',
@@ -135,6 +138,7 @@ export const theme: Theme = {
     },
   },
   spacing: {
+    xsmall: '.25rem',
     small: '.5rem',
     smallish: '.75rem',
     normal: '1rem',

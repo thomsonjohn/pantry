@@ -17,12 +17,12 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
 
   const toggleStock = (item: { inStock: boolean }): void => {
     const updatedItem = { ...item, inStock: !item.inStock }
-    editItem(updatedItem)
+    editItem(updatedItem, false)
   }
 
   const toggleToBuy = (item: { toBuy: boolean }): void => {
     const updatedItem = { ...item, toBuy: !item.toBuy }
-    editItem(updatedItem)
+    editItem(updatedItem, false)
   }
 
   return (

@@ -31,12 +31,12 @@ const ListItem: FC<ListItemProps> = ({ item }: ListItemProps) => {
 
   const toggleItem = (item: { inBasket: boolean }): void => {
     const updatedItem = { ...item, inBasket: !item.inBasket }
-    editItem(updatedItem)
+    editItem(updatedItem, false)
   }
 
   const removeFromList = (item: { toBuy: boolean }): void => {
     const updatedItem = { ...item, toBuy: !item.toBuy }
-    editItem(updatedItem)
+    editItem(updatedItem, false)
   }
 
   return (

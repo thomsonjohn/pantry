@@ -21,12 +21,12 @@ const Product: FC<ProductProps> = ({ productId }: ProductProps) => {
 
   const toggleStock = (product: { inStock: boolean }): void => {
     const updatedProduct = { ...product, inStock: !product.inStock }
-    editItem(updatedProduct)
+    editItem(updatedProduct, false)
   }
 
   const toggleOnList = (product: { toBuy: boolean }): void => {
     const updatedProduct = { ...product, toBuy: !product.toBuy }
-    editItem(updatedProduct)
+    editItem(updatedProduct, false)
   }
 
   const deleteProduct = (id: number): void => {

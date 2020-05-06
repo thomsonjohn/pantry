@@ -37,7 +37,7 @@ const Search = (): JSX.Element => {
         (item: { name: string }) => item.name === searchQuery
       )[0]
       console.log(existingItem)
-      editItem({ ...existingItem, toBuy: true })
+      editItem({ ...existingItem, toBuy: true }, true)
     } else {
       addItem(newItem)
     }

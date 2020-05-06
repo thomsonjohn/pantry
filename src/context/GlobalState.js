@@ -38,10 +38,10 @@ export const GlobalProvider = ({ children }) => {
     })
   }
 
-  function editItem(item) {
+  function editItem(item, scrollTo) {
     dispatch({
       type: 'EDIT_ITEM',
-      payload: item,
+      payload: { item: item, scrollTo: scrollTo },
     })
   }
 
