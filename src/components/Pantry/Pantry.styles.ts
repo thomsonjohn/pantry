@@ -3,13 +3,10 @@ import { IStyle } from 'fela'
 import { Theme } from '../../Theme'
 
 interface Style {
-  actions: IStyle
-  button: IStyle
-  circle: IStyle
+  pantry: IStyle
   subtitle: object
   subtitleWrapper: IStyle
   topPanel: IStyle
-  wrapper: IStyle
 }
 
 interface StyleProps {
@@ -18,23 +15,14 @@ interface StyleProps {
 
 const makeStyles = ({ theme }: StyleProps): Style => {
   return {
-    actions: {
+    pantry: {
+      borderTopLeftRadius: theme.spacing.normal,
+      borderTopRightRadius: theme.spacing.normal,
+      backgroundColor: theme.color.surface,
       display: 'flex',
-      paddingTop: theme.spacing.normal,
-    },
-    button: {
-      background: 'transparent',
-      border: 'none',
-      outline: 'none',
-      height: theme.spacing.large,
-    },
-    circle: {
-      backgroundColor: theme.color.secondary,
-      borderRadius: '50%',
-      position: 'absolute',
-      right: '1rem',
-      width: '12px',
-      height: '12px',
+      flex: '1 1 auto',
+      flexDirection: 'column',
+      padding: theme.spacing.normal,
     },
     subtitle: {
       ...theme.font.subtitle1,
@@ -44,7 +32,6 @@ const makeStyles = ({ theme }: StyleProps): Style => {
       alignItems: 'center',
       display: 'flex',
       flex: '1',
-      height: theme.spacing.large,
       justifyContent: 'space-between',
     },
     topPanel: {
@@ -53,15 +40,6 @@ const makeStyles = ({ theme }: StyleProps): Style => {
       display: 'flex',
       flexDirection: 'column',
       paddingBottom: theme.spacing.normal,
-    },
-    wrapper: {
-      borderTopLeftRadius: theme.spacing.normal,
-      borderTopRightRadius: theme.spacing.normal,
-      backgroundColor: theme.color.surface,
-      display: 'flex',
-      flex: '1 1 auto',
-      flexDirection: 'column',
-      padding: theme.spacing.normal,
     },
   }
 }

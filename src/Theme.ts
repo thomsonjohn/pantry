@@ -4,6 +4,7 @@ interface Font {
   fontSize: string
   letterSpacing: string
   textTransform?: string
+  lineHeight?: string
 }
 
 export interface Theme {
@@ -18,6 +19,7 @@ export interface Theme {
     textOnSecondary: string
     surface: string
     surfaceDark: string
+    error: string
   }
   font: {
     headline1: Font
@@ -40,6 +42,7 @@ export interface Theme {
     smallish: string
     normal: string
     large: string
+    xlarge: string
   }
 }
 
@@ -55,6 +58,7 @@ export const theme: Theme = {
     textOnSecondary: '#263238',
     surface: '#f5f5f5',
     surfaceDark: '#c2c2c3',
+    error: '#b00020',
   },
   font: {
     headline1: {
@@ -98,6 +102,7 @@ export const theme: Theme = {
       fontWeight: 400,
       fontSize: '1rem',
       letterSpacing: '-0.009rem',
+      lineHeight: '1.5rem',
     },
     subtitle2: {
       fontFamily: 'Roboto, sans-serif',
@@ -143,5 +148,6 @@ export const theme: Theme = {
     smallish: '.75rem',
     normal: '1rem',
     large: '1.5rem',
+    xlarge: '2.25rem',
   },
 }

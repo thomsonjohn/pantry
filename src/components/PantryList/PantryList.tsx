@@ -1,14 +1,22 @@
 import React, { useContext } from 'react'
+import { useFela } from 'react-fela'
 
 import { GlobalContext } from '../../context/GlobalState'
+import { Theme } from '../../Theme'
 
-import ListItem from './ListItem'
+import ListItem from './ListItem/ListItem'
+import makeStyles from './PantryList.styles'
 
 const PantryList = (): JSX.Element => {
   const { items } = useContext(GlobalContext)
 
+  const { css, theme } = useFela<Theme>()
+  const styles = makeStyles({
+    theme,
+  })
+
   return (
-    <div>
+    <div className={css(styles.pantryListWrapper)}>
       {items.map(
         (item: {
           id: number

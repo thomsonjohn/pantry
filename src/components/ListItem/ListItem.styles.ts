@@ -67,6 +67,7 @@ const makeStyles = ({ theme, item }: StyleProps): Style => {
       display: 'flex',
       flexDirection: 'column',
       flex: '1 0 auto',
+      maxHeight: theme.spacing.large,
       color: theme.color.primary,
       padding: `${theme.spacing.normal} 0`,
     },

@@ -26,6 +26,7 @@ const makeStyles = ({ theme, basketItems }: StyleProps): Style => {
         basketItems.length > 0
           ? theme.color.textOnSecondary
           : theme.color.primaryLight,
+      cursor: 'pointer',
       display: 'flex',
       outline: 'none',
       padding: `${theme.spacing.smallish} ${theme.spacing.normal} ${theme.spacing.smallish} ${theme.spacing.smallish}`,

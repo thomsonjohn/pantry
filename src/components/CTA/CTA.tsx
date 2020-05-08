@@ -30,7 +30,7 @@ const Cta = (): JSX.Element => {
   return (
     <div>
       <button
-        disabled={basketItems.length > 0}
+        disabled={basketItems.length === 0}
         className={css(styles.button)}
         onClick={addBasketToPantry}
       >
